@@ -7,15 +7,43 @@
     tools:context=".DodajWpis">
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:id="@+id/editOpis"
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="232dp"
         android:ems="10"
-        android:hint="Wpisz wartość"
+        android:hint="@string/hint_opis"
+        android:inputType="textMultiLine"
+        android:maxLength="100"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editKolor"
+        android:layout_width="360dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="168dp"
+        android:ems="10"
+        android:hint="@string/hint_kolor"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editWielkosc"
+        android:layout_width="360dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="112dp"
+        android:ems="10"
+        android:hint="@string/hint_wielkosc"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,11 +51,21 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="448dp"
         android:onClick="wyslij"
         android:text="Wyślij"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/editGatunek"
+        android:layout_width="360dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

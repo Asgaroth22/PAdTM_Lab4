@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PAdTM_Lab4</string>
+    <string name="hint_wielkosc">Podaj wielkość</string>
+    <string name="hint_kolor">Podaj kolor</string>
+    <string name="hint_opis">Podaj opis</string>
 </resources>
