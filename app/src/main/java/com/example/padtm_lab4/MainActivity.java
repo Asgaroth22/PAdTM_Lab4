@@ -19,6 +19,19 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter adapter;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        String[] values = new String[] { "Pies", "Kot", "Koń", "Gołąb", "Kruk", "Dzik",
+                "Karp", "Osioł", "Chomik", "Mysz", "Jeż", "Karaluch" };
+        this.target = new ArrayList<String>();
+        this.target.addAll(Arrays.asList(values));
+        this.adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,this.target);
+        ListView listview = (ListView) findViewById(R.id.listView );
+        listview.setAdapter(this.adapter);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater = getMenuInflater();
@@ -28,24 +41,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void nowyWpis(MenuItem mi)
     {
-        Intent intencja = new Intent(this,
-                DodajWpis.class);
+        Intent intencja = new Intent(this, DodajWpis.class);
         startActivityForResult(intencja, 1);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        String[] values = new String[] { "Pies",
-                "Kot", "Koń", "Gołąb", "Kruk", "Dzik", "Karp",
-                "Osioł", "Chomik", "Mysz", "Jeż", "Karaluch" };
-        this.target = new ArrayList<String>();
-        this.target.addAll(Arrays.asList(values));
-        this.adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,this.target);
-        ListView listview = (ListView) findViewById(
-                R.id.listView );
-        listview.setAdapter(this.adapter);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1 && resultCode==RESULT_OK)
+        {
+            Bundle extras = data.getExtras();
+            String nowy = (String)extras.get("wpis");
+            target.add(nowy);
+            adapter.notifyDataSetChanged();
+        }
     }
 }
